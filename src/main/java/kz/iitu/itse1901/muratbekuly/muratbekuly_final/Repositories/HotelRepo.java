@@ -9,6 +9,6 @@ import java.util.*;
 public interface HotelRepo {
     List<Hotel> findAll();
     Hotel findHotelById(Long id);
-    Hotel saveHotel(Hotel hotel);
-    void deleteHotel(Hotel hotel);
+    int saveHotel(Hotel hotel);
+    int deleteHotel(Long id);
 }

@@ -22,21 +22,21 @@ public class UserRepoImpl implements UserRepo {
     }
     @Override
     public List<User> findAll() {
-        return jdbcTemplate.query("SELECT * FROM user", new BeanPropertyRowMapper<>(User.class));
+        return jdbcTemplate.query("SELECT * FROM users", new BeanPropertyRowMapper<>(User.class));
     }
 
     @Override
     public User findUserById(Long id) {
-        return jdbcTemplate.queryForObject("SELECT * FROM user WHERE id = ?",(rs, rowNum) -> new User((long) rs.getInt("id"),rs.getString("name"),rs.getString("lastname"),rs.getString("email"),rs.getString("phone_number"),rs.getObject("tour_id", Tour.class),rs.getObject("creditCard_id", CreditCard.class)));
+        return jdbcTemplate.queryForObject("SELECT * FROM users WHERE id = ?",(rs, rowNum) -> new User((long) rs.getInt("id"),rs.getString("name"),rs.getString("lastname"),rs.getString("email"),rs.getString("phone_number"),rs.getObject("tour_id", Tour.class),rs.getObject("creditCard_id", CreditCard.class)));
     }
 
     @Override
     public int saveUser(User user) {
-        return jdbcTemplate.update("INSERT INTO user(name,lastname,email,phone_number,tour_id,creditCard_id) values (?,?,?,?,?,?)",user.getName(),user.getLastname(),user.getEmail(),user.getPhone_number(),user.getTour_id(),user.getCreditCard_id());
+        return jdbcTemplate.update("INSERT INTO users(name,lastname,email,phone_number,tour_id,creditCard_id) values (?,?,?,?,?,?)",user.getName(),user.getLastname(),user.getEmail(),user.getPhone_number(),user.getTour_id(),user.getCreditCard_id());
     }
 
     @Override
     public int deleteUser(Long id) {
-        return jdbcTemplate.update("DELETE FROM user WHERE id = ?",id);
+        return jdbcTemplate.update("DELETE FROM users WHERE id = ?",id);
     }
 }

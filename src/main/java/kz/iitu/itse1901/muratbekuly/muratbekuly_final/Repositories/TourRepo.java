@@ -9,6 +9,6 @@ import java.util.*;
 public interface TourRepo {
     List<Tour> findAll();
     Tour findTourById(Long id);
-    Tour saveTour(Tour tour);
-    void deleteTour(Tour tour);
+    int saveTour(Tour tour);
+    int deleteTour(Long id);
 }

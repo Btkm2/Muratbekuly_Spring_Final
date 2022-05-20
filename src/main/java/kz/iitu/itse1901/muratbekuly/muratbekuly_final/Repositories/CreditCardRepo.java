@@ -9,6 +9,6 @@ import java.util.List;
 public interface CreditCardRepo {
     List<CreditCard> findAll();
     CreditCard findCreditCardById(Long id);
-    CreditCard saveCreditCard(CreditCard creditCard);
-    void deleteCreditCard(CreditCard creditCard);
+    int saveCreditCard(CreditCard creditCard);
+    int deleteCreditCard(Long id);
 }

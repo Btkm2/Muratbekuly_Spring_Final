@@ -9,6 +9,6 @@ import java.util.List;
 public interface CountryRepo {
     List<Country> findAll();
     Country findCountryById(Long id);
-    Country saveCountry(Country country);
-    void deleteCountry(Country country);
+    int saveCountry(Country country);
+    int deleteCountry(Long id);
 }

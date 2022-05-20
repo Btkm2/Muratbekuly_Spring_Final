@@ -9,6 +9,6 @@ import java.util.List;
 public interface FlightRepo {
     List<Flight> findAll();
     Flight findFlightById(Long id);
-    Flight saveFlight(Flight flight);
-    void deleteFlight(Flight flight);
+    int saveFlight(Flight flight);
+    int deleteFlight(Long id);
 }

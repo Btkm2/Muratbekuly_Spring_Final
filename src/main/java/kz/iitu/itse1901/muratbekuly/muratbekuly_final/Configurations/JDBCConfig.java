@@ -2,6 +2,7 @@ package kz.iitu.itse1901.muratbekuly.muratbekuly_final.Configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -22,9 +23,10 @@ public class JDBCConfig {
     }
 
     @Bean
+    @DependsOn({"dataSource"})
     public JdbcTemplate jdbcTemplate(){
-        GenericApplicationContext applicationContext = new GenericApplicationContext();
-        DataSource dataSource = (DataSource) applicationContext.getBean("dataSource");
-        return new JdbcTemplate(dataSource);
+//        GenericApplicationContext applicationContext = new GenericApplicationContext();
+//        DataSource dataSource = (DataSource) applicationContext.getBean("dataSource");
+        return new JdbcTemplate(dataSource());
     }
 }

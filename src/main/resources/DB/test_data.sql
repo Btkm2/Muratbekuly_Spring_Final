@@ -1,0 +1,1 @@
+insert into users(name,lastname,email,phone_number) values ('Beket', 'Muratbek','someemial@inbox.com','3543543');
