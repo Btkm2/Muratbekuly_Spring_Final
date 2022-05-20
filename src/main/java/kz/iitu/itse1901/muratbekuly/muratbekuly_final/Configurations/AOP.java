@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 @EnableAspectJAutoProxy
 @Component
 public class AOP {
-    @Pointcut("execution(public * kz.iitu.itse1901.muratbekuly.muratbekuly_final.Services.UserService.get*(..))")
+    @Pointcut("execution(public * kz.iitu.itse1901.muratbekuly.muratbekuly_final.Services.UserService.find*(..))")
     public void findAll(){}
 
     @Before("findAll()")

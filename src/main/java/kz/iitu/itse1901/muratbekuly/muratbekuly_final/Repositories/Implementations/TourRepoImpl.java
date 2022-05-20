@@ -5,9 +5,12 @@ import kz.iitu.itse1901.muratbekuly.muratbekuly_final.Repositories.TourRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+@Repository
 public class TourRepoImpl implements TourRepo {
     private final JdbcTemplate jdbcTemplate;
 

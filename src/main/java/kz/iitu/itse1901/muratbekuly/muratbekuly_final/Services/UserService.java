@@ -4,11 +4,14 @@ import kz.iitu.itse1901.muratbekuly.muratbekuly_final.Models.User;
 import kz.iitu.itse1901.muratbekuly.muratbekuly_final.Repositories.Implementations.UserRepoImpl;
 import kz.iitu.itse1901.muratbekuly.muratbekuly_final.Repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@EnableScheduling
 public class UserService implements UserRepo {
     private final UserRepoImpl userRepoimpl;
 
@@ -16,6 +19,7 @@ public class UserService implements UserRepo {
         this.userRepoimpl = userRepoimpl;
     }
 
+    @Scheduled(fixedRate = 1)
     @Override
     public List<User> findAll() {
         return userRepoimpl.findAll();

@@ -17,13 +17,70 @@ public class AppController {
     private UserService userService;
 
     @Autowired
+    private TourService tourService;
+
+    @Autowired
+    private HotelService hotelService;
+
+    @Autowired
+    private FlightService flightService;
+
+    @Autowired
+    private CreditCardService creditCardService;
+
+    @Autowired
+    private CountryService countryService;
+
+    @Autowired
     private JmsTemplate jmsTemplate;
 
+    //Get Methods
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     @GetMapping("/AllUsers")
     public List<User> getAllUsers(){
         return userService.findAll();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    @GetMapping("/AllTours")
+    public List<Tour> getAllTours(){
+        return tourService.findAll();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    @GetMapping("/AllHotels")
+    public List<Hotel> getAllHotels(){
+        return hotelService.findAll();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    @GetMapping("/AllFlights")
+    public List<Flight> getAllFlights(){
+        return flightService.findAll();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    @GetMapping("/AllCreditCards")
+    public List<CreditCard> getAllCreditCards(){
+        return creditCardService.findAll();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    @GetMapping("/AllCountries")
+    public List<Country> getAllCountries(){
+        return countryService.findAll();
+    }
+
+    //Post Methods
+    @PostMapping("/saveUser")
+    public int addUser(@RequestBody User user){
+        return userService.saveUser(user);
     }
 
     //MARK: JMS
